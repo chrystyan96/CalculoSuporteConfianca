@@ -66,38 +66,12 @@ public class Run {
             }
         }
         
-        controlador = true;
-        while(controlador) {
-            System.out.println("Qual tipo de calculo deseja fazer?");
-            System.out.println("1 - Confiança");
-            System.out.println("2 - Suporte");
-            aux = ler.next();
-            int auxValue = 0;
-            
-            if(aux.matches("^[0-9]*$")) {
-                auxValue = Integer.parseInt(aux);
-                if(auxValue == 1) {
-                    clearConsole();
-                    System.out.println("O calculo da confiança entre " + xString + " e " + yString + " é de:");
-                    System.out.println(regras.calcularConfianca((x-1), (y-1)));
-                    controlador = false;
-                } else if(auxValue == 2){
-                    clearConsole();
-                    System.out.println("O calculo do suporte entre " + xString + " e " + yString + " é de:");
-                    System.out.printf("%.3f %n", regras.calcularSuporte((x-1), (y-1)));
-                    controlador = false;
-                } else {
-                    clearConsole();
-                    System.out.println("Opção inválida!!");
-                    System.out.println();
-                }
-            } else {
-                clearConsole();
-                System.out.println("Digite somente números!");
-                System.out.println();
-            }
-        }
-            
+        clearConsole();
+        System.out.println("O calculo da confiança entre " + xString + " e " + yString + " é de:");
+        System.out.printf("%.0f %n", regras.calcularConfianca((x-1), (y-1)));
+        System.out.println();
+        System.out.println("O calculo do suporte entre " + xString + " e " + yString + " é de:");
+        System.out.printf("%.3f %n", regras.calcularSuporte((x-1), (y-1)));
     }
     
     private static void itensLista(String ordem) {
